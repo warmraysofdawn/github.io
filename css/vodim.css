@@ -1,0 +1,478 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Цветовая палитра */
+:root {
+    --primary-color: black;    /* Основной розовый */
+    --secondary-color: #8B5F7E;  /* Тёмно-пурпурный */
+    --accent-color: #FFD700;      /* Золотой акцент */
+    --text-color: #4A4A4A;        /* Основной текст */
+    --bg-color: #FFF5EE;         /* Фон страницы */
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-family: 'Georgia', serif; /* Более поэтичный шрифт */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Разделяем лого и навигацию */
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 20px 5%;
+    position: relative;
+    text-decoration: none;
+}
+
+#mainlogo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo {
+    height: 10vw;
+    width: 10vw;
+}
+
+.logo:hover{
+    animation: logomain 0.4s ease delay iteration-count direction fill-mode;
+}
+
+.logotext {
+    font-size: 2rem;
+    color: #fffdd0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-family: "Pangolin", cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu {
+    /* Все стили теперь применяются к ссылкам */
+    color: #fffdd0;
+    text-decoration: none; /* Подчёркивание убрано навсегда */
+    font-weight: 500;
+    padding: 5px 10px;
+    position: relative;
+    transition: all 0.4s ease;
+    font-size: 2.5rem; /* Добавил размер шрифта */
+}
+
+/* Для сохранения вертикального выравнивания */
+.nav-group {
+    display: flex;
+    gap: 25px;
+    align-items: center; /* Важно для вертикального центрирования */
+}
+
+/* Анимированная полоса под текстом */
+.nav-menu::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu:hover::after {
+    width: 100%; /* Полное заполнение при наведении */
+}
+
+/* Убираем предыдущие эффекты наведения */
+.nav-menu:hover {
+    background-color: transparent;
+    transform: none;
+}
+
+/* Особый стиль для кнопки "Поддержать" */
+.donate::after {
+    background: linear-gradient(90deg, var(--accent-color) 0%, #ff6b6b 100%);
+}
+
+.telegram-image {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.telegram-image:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    background: var(--primary-color);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 100;
+    height: 100px;
+    margin-top: 100px;
+}
+
+.footerlink {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #fffdd0;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+}
+
+.footerlink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ffb6c1 0%, #f5deb3 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.footerlink:hover {
+    color: #fff;
+}
+
+.footerlink:hover::after {
+    transform: scaleX(1);
+}
+
+.telegramimg {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    filter: brightness(0.9);
+}
+
+.telegramimg:hover{
+    transform: scale(1.2);
+}
+
+
+.portrait-container {
+    /* Центрирование контейнера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Расположение сразу под хедером */
+    margin-top: 20px; /* Регулируйте отступ от хедера */
+    width: 100%;
+    min-height: 30vh; /* Высота области для картинки */
+
+    max-width: 50%; 
+    margin: 0 auto 2rem; 
+}
+
+.portrait {
+    /* Круглая форма */
+    width: 18vmin;
+    height: 18vmin;
+    border-radius: 50%;
+    object-fit: cover;
+
+    /* Эффекты для красоты */
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    border: 3px solid #ffffff;
+
+    /* Позиционирование */
+    position: relative;
+    z-index: 100;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .portrait {
+            width: 25vmin;
+            height: 25vmin;
+    }
+    .portrait-container {
+            min-height: 25vh;
+    }
+}
+
+.quote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fffdd0;
+    text-align: center;
+    font-size: 2rem;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: italic;
+}
+    
+.men{
+    display: flex;
+    align-items: flex-end;
+    color: antiquewhite;
+    margin-left: 80vw;
+    font-size: 2rem;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: bold;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 1.89rem;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: bold;
+}
+
+.thanx{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ff6b6b;
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
+}
+
+.footerbutton {
+    text-decoration: none;
+    background-color: #FFD700;
+    color: #FFF5EE;
+    border-radius: 45px;
+    padding: 15px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    position: relative;
+    z-index: 2; /* Важно для отображения над эффектами */
+  }
+
+  .footerbutton:hover {
+    transform: scale(3.5) skew(-20deg);
+    background-color: #ff0000;
+  }
+
+  /* Glitch эффект для всей страницы */
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  body.glitch-effect::before {
+    animation: glitch-animation 0.3s infinite;
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    background: rgba(255, 0, 0, 0.3);
+  }
+
+  body.glitch-effect::after {
+    animation: glitch-animation 0.3s infinite reverse;
+    clip-path: polygon(0 95%, 100% 95%, 100% 98%, 0 98%);
+    background: rgba(0, 0, 255, 0.3);
+  }
+
+  @keyframes glitch-animation {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 1px); }
+    40% { transform: translate(-1px, -3px); }
+    60% { transform: translate(3px, 2px); }
+    80% { transform: translate(2px, -1px); }
+    100% { transform: translate(0); }
+  }
+
+  body.glitch-effect {
+    animation: glitch-main 0.3s infinite;
+  }
+
+  @keyframes glitch-main {
+    0% { transform: translate(0); }
+    25% { transform: translate(-2px, 1px); }
+    50% { transform: translate(3px, -1px); }
+    75% { transform: translate(-1px, 2px); }
+    100% { transform: translate(0); }
+  }
+  
+
+  /* Добавить в HTML: <meta name="viewport" content="width=device-width, initial-scale=1"> */
+
+/* Базовые стили остаются прежними */
+
+/* Адаптивные изменения */
+@media (max-width: 1200px) {
+    .nav-menu {
+      font-size: 2rem;
+    }
+    
+    .logo {
+      height: 12vw;
+      width: 12vw;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    header {
+      flex-direction: column;
+      gap: 20px;
+      padding: 15px 5%;
+    }
+  
+    .nav-group {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+  
+    .nav-menu {
+      font-size: 1.8rem;
+      padding: 3px 8px;
+    }
+  
+    .portrait-container {
+      max-width: 70%;
+      margin-top: 10px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .logotext {
+      display: block;
+      font-size: 1.5rem;
+    }
+  
+    .nav-menu {
+      font-size: 1.5rem;
+    }
+  
+    .quote {
+      font-size: 1.5rem;
+      padding: 0 15px;
+    }
+  
+    .portrait {
+      width: 30vmin;
+      height: 30vmin;
+      border-width: 2px;
+    }
+  
+    .men {
+      margin-left: 0;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+  
+    .info {
+      font-size: 1.3rem;
+      padding: 0 10px;
+    }
+  
+    .footerbutton:hover {
+      transform: scale(1.5) skew(-10deg);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .header-right {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .nav-menu {
+      font-size: 1.3rem;
+    }
+  
+    .portrait-container {
+      max-width: 90%;
+      min-height: 20vh;
+    }
+  
+    .quote {
+      font-size: 1.2rem;
+    }
+  
+    .thanx {
+      font-size: 2em;
+    }
+  
+    .footerlink {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Оптимизация для landscape ориентации */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .portrait-container {
+      min-height: 40vh;
+    }
+    
+    .portrait {
+      width: 25vmin;
+      height: 25vmin;
+    }
+  }
+  
+  /* Адаптация анимаций для мобильных */
+  @media (hover: none) and (pointer: coarse) {
+    .nav-menu::after,
+    .footerlink::after {
+      display: none;
+    }
+    
+    .footerbutton:hover {
+      transform: none;
+      background-color: #FFD700;
+    }
+  }

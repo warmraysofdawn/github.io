@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Водим</title>
+    <link rel="stylesheet" href="css/vodim.css">
+</head>
+<body>
+    <header>
+        <div id="mainlogo">
+            <a href="index.html"><img class="logo" src="img/logo1.webp" alt="Логотип">
+            <h1 class="logotext">тёплые лучи рассвета</h1>
+            </a>
+        </div>
+    
+        <nav class="header-right">
+            <div class="nav-group">
+                <!-- Все h1 убраны, класс перенесён на ссылки -->
+                <a class="nav-menu" href="index.html" target="_blank" rel="noopener noreferrer" >Водим</a>
+                <a class="nav-menu" href="poems.html" target="_blank" rel="noopener noreferrer" >Водим</a>
+                <a class="nav-menu" href="proza.html" target="_blank" rel="noopener noreferrer">Водим</a>
+                <a class="nav-menu" href="about.html" target="_blank" rel="noopener noreferrer">Водим</a>
+                <a class="nav-menu donate" href="donate.html" id="donate" target="_blank" rel="noopener noreferrer">Поддержать (Водим)</a>
+            </div>
+            
+            <div class="telegram">
+                <a href="https://t.me/warmraysofdawn" target="_blank" rel="noopener noreferrer"><img class="telegram-image" src="img/tglogo.png" alt="Telegram"></a>
+            </div>
+        </nav>
+    </header>
+<main>
+    <div class="portrait-container">
+    <img class="portrait" src="img/vodimain.jpg" alt="">
+</div>
+    <p class="quote">"Я считаю, что нам пора начать новую эпоху человечества. Без насилия, убийств и оружия. Всё оружие нужно уничтожить, а ядерный арсенал запустить на Марс, чтобы растопить его ледяной покров"</p>
+    <p class="men"> — Водим</p>
+
+    <p class="info">Те читатели, которые знакомы с моим творчеством давно, уже не раз слышали это имя. Да, по всем документам он Вадим, но мы считаем это опечаткой.</p>
+    <p class="info">Водим внёс немалый вклад в мою жизнь и позволяет мне смотреть на мир под другим углом. Благодаря нему рос и развивался мой Telegram-канал, рождались новые стихи, да и в целом я чаще выходил на улицу. </p>
+    <h1 class="thanx">Водим, спасибо за то, что ты есть.</h1>
+</main>
+    <footer>
+        <a class="footerlink" href="donate.html">Водим</a>
+        <a class="footerlink" href="about.html">Водим</a>
+        <a class="footerlink" href="https://t.me/warmraysofdawn">Водим<img class="telegramimg" src="img/tglogo.png" alt=""></a>
+        <a class="footerbutton" href="denys.html">Денис?</a>
+    </footer>
+
+    <script>
+        // Добавляем обработчики событий для всех кнопок с классом footerbutton
+        document.querySelectorAll('.footerbutton').forEach(button => {
+          button.addEventListener('mouseenter', () => {
+            document.body.classList.add('glitch-effect');
+          });
+          
+          button.addEventListener('mouseleave', () => {
+            document.body.classList.remove('glitch-effect');
+          });
+        });
+      </script>
+
+</body>
+</html>

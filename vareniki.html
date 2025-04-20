@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вареники с вишней</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <div id="mainlogo">
+            <a href="index.html"><img class="logo" src="img/logo1.webp" alt="Логотип">
+            <h1 class="logotext">тёплые лучи рассвета</h1>
+            </a>
+        </div>
+    
+        <nav class="header-right">
+            <div class="nav-group">
+                <!-- Все h1 убраны, класс перенесён на ссылки -->
+                <a class="nav-menu" href="index.html" target="_blank" rel="noopener noreferrer" >Главная</a>
+                <a class="nav-menu" href="poems.html" target="_blank" rel="noopener noreferrer" >Стихи</a>
+                <a class="nav-menu" href="proza.html" target="_blank" rel="noopener noreferrer">Проза</a>
+                <a class="nav-menu" href="about.html" target="_blank" rel="noopener noreferrer">О проекте</a>
+                <a class="nav-menu donate" href="donate.html" id="donate" target="_blank" rel="noopener noreferrer">Поддержать</a>
+            </div>
+            
+            <div class="telegram">
+                <a href="https://t.me/warmraysofdawn" target="_blank" rel="noopener noreferrer"><img class="telegram-image" src="img/tglogo.png" alt="Telegram"></a>
+            </div>
+        </nav>
+    </header>
+
+<main>
+    <div class="vareniki-c"></div>
+    <img class="vareniki" src="img/vareniki.jpg" alt="">
+    <h1 class="thanx">Хочу вареников с вишней.</h1>
+</div>
+</main>
+
+    <footer>
+        <a class="footerlink" href="donate.html">Поддержать нас</a>
+        <a class="footerlink" href="about.html">О проекте</a>
+        <a class="footerlink" href="https://t.me/warmraysofdawn">Мы в Telegram <img class="telegramimg" src="img/tglogo.png" alt=""></a>
+    </footer>
+
+    <script>
+        const tracks = [
+            'audio/nasheed2.mp3',
+            'audio/nasheed1.mp3',
+            'audio/BizikriLlahi.mp3',
+            'audio/а души как воины.mp3'
+        ];
+        
+        let currentTrack = 0;
+        let audioElement = null;
+        
+        function playNext() {
+            if(audioElement) {
+                audioElement.pause();
+                audioElement.removeEventListener('ended', playNext);
+            }
+            
+            audioElement = new Audio(tracks[currentTrack]);
+            
+            audioElement.addEventListener('ended', () => {
+                currentTrack = (currentTrack + 1) % tracks.length;
+                playNext();
+            });
+            
+            audioElement.play().catch(error => {
+                console.error('Ошибка воспроизведения:', error);
+            });
+        }
+        
+        document.querySelector('.vareniki').addEventListener('click', function() {
+            if(!audioElement) { // Запускаем только при первом клике
+                playNext();
+                this.style.cursor = 'pointer'; // Визуальный фидбек
+                this.classList.add('playing'); // Добавляем класс для стилизации
+            }
+        });
+        </script>
+</body>
+</html>

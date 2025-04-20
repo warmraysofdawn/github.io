@@ -1,0 +1,802 @@
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Цветовая палитра */
+:root {
+    --primary-color: #c49393;    /* Основной розовый */
+    --secondary-color: #8B5F7E;  /* Тёмно-пурпурный */
+    --accent-color: #FFD700;      /* Золотой акцент */
+    --text-color: #4A4A4A;        /* Основной текст */
+    --bg-color: #FFF5EE;         /* Фон страницы */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Georgia', serif; /* Более поэтичный шрифт */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Разделяем лого и навигацию */
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 20px 5%;
+    position: relative;
+    text-decoration: none;
+}
+
+#mainlogo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo {
+    height: 10vw;
+    width: 10vw;
+}
+
+.logo:hover{
+    animation: logomain 0.4s ease delay iteration-count direction fill-mode;
+}
+
+.logotext {
+    font-size: 2rem;
+    color: #fffdd0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    font-family: "Pangolin", cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: none;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu {
+    /* Все стили теперь применяются к ссылкам */
+    color: #fffdd0;
+    text-decoration: none; /* Подчёркивание убрано навсегда */
+    font-weight: 500;
+    padding: 5px 10px;
+    position: relative;
+    transition: all 0.4s ease;
+    font-size: 2.5rem; /* Добавил размер шрифта */
+}
+
+/* Для сохранения вертикального выравнивания */
+.nav-group {
+    display: flex;
+    gap: 25px;
+    align-items: center; /* Важно для вертикального центрирования */
+}
+
+/* Анимированная полоса под текстом */
+.nav-menu::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu:hover::after {
+    width: 100%; /* Полное заполнение при наведении */
+}
+
+/* Убираем предыдущие эффекты наведения */
+.nav-menu:hover {
+    background-color: transparent;
+    transform: none;
+}
+
+/* Особый стиль для кнопки "Поддержать" */
+.donate::after {
+    background: linear-gradient(90deg, var(--accent-color) 0%, #ff6b6b 100%);
+}
+
+.telegram-image {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.telegram-image:hover {
+    transform: scale(1.1);
+}
+
+main {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+    flex: 1;
+    padding: 20px;
+}
+
+.maintext {
+    font-size: 1.44rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    text-decoration: none;
+    color: #4A4A4A;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.butt {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fffdd0 !important;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.butt:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px) scale(2);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+}
+
+footer {
+    background: #c49393;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    bottom: 0;
+}
+
+footer {
+    background: #c49393;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footerlink {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #fffdd0;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+}
+
+.footerlink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ffb6c1 0%, #f5deb3 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.footerlink:hover {
+    color: #fff;
+}
+
+.footerlink:hover::after {
+    transform: scaleX(1);
+}
+
+.telegramimg {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+    filter: brightness(0.9);
+}
+
+.telegramimg:hover{
+    transform: scale(1.2);
+}
+
+.genres{
+    text-decoration: none;
+}
+
+.mainh{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #c49393;
+    font-family: "Unbounded", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.mainttx{
+    color: #ffb6c1;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+}
+
+.mainttx:hover{
+    color: #ff6b6b;
+}
+
+.name{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: "Unbounded", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 2.5rem;
+    color: #8B5F7E;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+}
+
+.text {
+    font-size: 1.3rem;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #a79871;
+    white-space: pre-line; /* Сохраняем переносы строк */
+    text-align: left;
+    max-width: 600px; /* Ограничение ширины для удобочитаемости */
+    line-height: 1.1;
+}
+
+/* Красная строка для всех строк кроме первой */
+.text br + br::before {
+    content: "";
+    display: inline-block;
+    width: 2em; /* Размер красной строки */
+}
+
+.picture{
+    max-width: 100%; /* Важно для адаптивности */
+    height: auto; /* Сохраняет пропорции */
+    display: block; /* Убирает лишние отступы */
+    margin: 0 auto; /* Центрирование */
+    transition: transform 0.3s ease; /* Для анимации */
+    }
+      
+
+.mainproza{
+    text-align: center;
+    color: #cf620d;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    margin-bottom: 2vw;
+}
+
+.namebook{
+    display: inline-block;
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: #ff6b6b;
+    font-size: 1.2rem;
+}
+
+.capture{
+    display: inline-block;
+    margin: 0; /* Отступы между параграфами */
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: #a79871;
+    margin-bottom: 30px;
+}
+
+.prozama{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.book{
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+}
+
+.download1{
+    text-decoration: none;
+    background-color:#8B5F7E;
+    color: #fffdd0 !important;
+    padding: 12px 30px;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.download1:hover{
+    background-color: #c49393;
+    transform: translateY(-2px) scale(2);
+}
+
+.download10{
+    text-decoration: none;
+    background-color:#8B5F7E;
+    color: #fffdd0 !important;
+    padding: 12px 30px;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.download10:hover{
+    background-color: #c49393;
+    transform: translateY(-2px) scale(2);
+}
+
+.icon{
+    height: 10vw;
+    width: 10vw;
+    border-radius: 500px;
+    margin-right: 1vw;
+}
+
+.donbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Мобильная адаптация */
+
+/* Мобильная адаптация */
+
+/* Мобильная адаптация */
+@media screen and (max-width: 2400px) {
+    .logo {
+        max-width: 120px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .nav-menu {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    header {
+        padding: 15px 3%;
+    }
+    
+    .picture{
+        max-width: 23vw;
+        max-height: 23vw;
+    }
+    
+
+    .mainh {
+        font-size: 2.2rem;
+    }
+}
+
+/* Основные мобильные стили */
+@media screen and (max-width: 768px) {
+    :root {
+        --text-size-multiplier: 0.9;
+    }
+
+    .vareniki{
+        height: 100px;
+        width: 100px;
+    }
+
+    .name{
+        font-size: 1.5rem;
+        margin-top: 5vh;
+        margin-bottom: 1vh;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 12px 2%;
+        position: relative;
+    }
+
+    #mainlogo {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+        min-width: 60px;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .nav-group {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        font-size: calc(1rem * var(--text-size-multiplier));
+        padding: 6px 8px;
+        white-space: nowrap;
+    }
+
+    .telegram-image {
+        width: 28px;
+        height: 28px;
+    }
+
+    main {
+        margin: 1.5rem auto;
+        padding: 0 4%;
+    }
+
+    .mainh {
+        font-size: calc(1.8rem * var(--text-size-multiplier));
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+
+    .maintext {
+        font-size: calc(1.1rem * var(--text-size-multiplier));
+        line-height: 1.5;
+    }
+
+    .butt, .download1, .download10 {
+        width: 100%;
+        max-width: 320px;
+        padding: 12px;
+        font-size: calc(1rem * var(--text-size-multiplier));
+        margin: 1rem auto;
+    }
+
+    .book-card {
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .namebook {
+        font-size: calc(1.3rem * var(--text-size-multiplier));
+    }
+
+    .capture {
+        font-size: calc(1rem * var(--text-size-multiplier));
+        line-height: 1.4;
+    }
+
+    .donbox {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .icon {
+        width: 120px;
+        height: 120px;
+        margin: 0;
+    }
+
+    footer {
+        padding: 1.5rem 5%;
+    }
+
+    .picture{
+        max-width: 100% !important; /* Переопределение стилей */
+        width: 90vw; /* Занимает 90% ширины экрана */
+        height: auto;
+        margin: 20px 0;
+    }
+    
+    .picture:active {
+        transform: scale(1.5);
+        z-index: 1000;
+        position: relative;
+        cursor: zoom-out;
+      }
+
+
+    .footerlink {
+        font-size: calc(0.95rem * var(--text-size-multiplier));
+    }
+
+    .name{
+        font-size: 1.5rem;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+    }
+}
+
+/* Адаптация для маленьких экранов */
+@media screen and (max-width: 480px) {
+    :root {
+        --text-size-multiplier: 0.85;
+    }
+
+    .name{
+        font-size: 1.5rem;
+        margin-top: 2vh;
+        margin-bottom: 3vh;
+    }
+
+    .nav-group {
+        gap: 8px;
+    }
+
+    .nav-menu {
+        font-size: calc(0.9rem * var(--text-size-multiplier));
+        padding: 4px 6px;
+    }
+
+    .mainh {
+        font-size: calc(1.6rem * var(--text-size-multiplier));
+    }
+
+    .maintext {
+        font-size: calc(1rem * var(--text-size-multiplier));
+    }
+
+    .namebook {
+        font-size: calc(1.2rem * var(--text-size-multiplier));
+    }
+
+    .book-card {
+        padding: 0.8rem;
+    }
+
+    .donation-option {
+        width: 90%;
+    }
+
+    .picture{
+        max-width: 23vw;
+        max-height: 23vw;
+    }
+    
+
+    .footerlink {
+        text-align: center;
+        width: 100%;
+        padding: 8px 0;
+    }
+}
+
+/* Вертикальная ориентация */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    .header-right {
+        flex-direction: column;
+    }
+
+    .nav-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-menu {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .telegram {
+        margin-top: 1rem;
+    }
+
+    .picture{
+        max-width: 23vw;
+        max-height: 23vw;
+    }
+    
+}
+
+/* Горизонтальная ориентация */
+@media screen and (max-width: 1080px) and (orientation: landscape) {
+    header {
+        flex-direction: row;
+        padding: 10px 3%;
+    }
+
+    .nav-group {
+        flex-wrap: nowrap;
+    }
+
+    .picture{
+        max-width: 23vw;
+        max-height: 23vw;
+    }
+    
+
+    .maintext {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Адаптация плотности пикселей */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+    .logo {
+        image-rendering: -webkit-optimize-contrast;
+    }
+    
+    .nav-menu {
+        font-weight: 600;
+    }
+
+    .picture{
+        max-width: 23vw;
+        max-height: 23vw;
+    }
+    
+}
+
+.footerbutton {
+    text-decoration: none;
+    background-color: #FFD700;
+    color: #FFF5EE;
+    border-radius: 45px;
+    padding: 15px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+    position: relative;
+    z-index: 2; /* Важно для отображения над эффектами */
+  }
+
+  .footerbutton:hover {
+    transform: scale(3.5) skew(-20deg);
+    background-color: #ff0000;
+  }
+
+  /* Glitch эффект для всей страницы */
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  body.glitch-effect::before {
+    animation: glitch-animation 0.3s infinite;
+    clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
+    background: rgba(255, 0, 0, 0.3);
+  }
+
+  body.glitch-effect::after {
+    animation: glitch-animation 0.3s infinite reverse;
+    clip-path: polygon(0 95%, 100% 95%, 100% 98%, 0 98%);
+    background: rgba(0, 0, 255, 0.3);
+  }
+
+  @keyframes glitch-animation {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 1px); }
+    40% { transform: translate(-1px, -3px); }
+    60% { transform: translate(3px, 2px); }
+    80% { transform: translate(2px, -1px); }
+    100% { transform: translate(0); }
+  }
+
+  body.glitch-effect {
+    animation: glitch-main 0.3s infinite;
+  }
+
+  @keyframes glitch-main {
+    0% { transform: translate(0); }
+    25% { transform: translate(-2px, 1px); }
+    50% { transform: translate(3px, -1px); }
+    75% { transform: translate(-1px, 2px); }
+    100% { transform: translate(0); }
+  }
+
+.linkos{
+    text-decoration: none;
+    color: #4A4A4A;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.vareniki-c{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.vareniki{
+    max-width: 40vw;
+    max-height: auto;
+    width: auto;
+    height: auto;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.vareniki:hover {
+    transform: scale(1.03);
+}
+
+.vareniki.playing {
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.5));
+}
+
